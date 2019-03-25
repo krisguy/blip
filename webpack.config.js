@@ -151,6 +151,11 @@ const plugins = [
 
 if (isDev) {
   plugins.push(new webpack.HotModuleReplacementPlugin());
+  babelLoaderConfiguration.push({
+    test: /\.js$/,
+    use: ['source-map-loader'],
+    enforce: 'pre',
+  });
 }
 
 const entry = isDev
